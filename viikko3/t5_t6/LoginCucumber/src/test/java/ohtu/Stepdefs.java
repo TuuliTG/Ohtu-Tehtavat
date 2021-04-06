@@ -52,5 +52,15 @@ public class Stepdefs {
         inputLines.add("new");
     }
     
+    @Given("user {string} with password {string} is created")
+    public void createNewUser(String username, String password) throws Throwable {
+        inputLines.add("new");
+        inputLines.add(username);
+        inputLines.add(password);
+        
+        io = new StubIO(inputLines);
+        app = new App(io, auth);
+        app.run();
+    }
     
 }
