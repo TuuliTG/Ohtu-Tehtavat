@@ -25,11 +25,20 @@ public class Stepdefs {
     
     @Given("command new user is selected")
     public void newUserIsSelected() {
-        driver.get(baseUrl);
-        WebElement element = driver.findElement(By.linkText("register new user"));
-        element.click();
+        goToCreateNewUserPage();
     }
     
+    @Given("user with username {string} with password {string} is successfully created")
+    public void newUserIsCreated(String username, String password) {
+        goToCreateNewUserPage();
+        createNewUserWith(username, password, password);
+    }
+    
+    @Given("user with username {string} and password {string} is tried to be created")
+    public void newUserIsTriedToBeCreated(String username, String password) {
+        goToCreateNewUserPage();
+        createNewUserWith(username, password, password);
+    }
     @When("correct username {string} and password {string} are given")
     public void correctUsernameAndPasswordAreGiven(String username, String password) {
         logInWith(username, password);
@@ -38,7 +47,12 @@ public class Stepdefs {
     @Then("user is logged in")
     public void userIsLoggedIn() {
         pageHasContent("Ohtu Application main page");
-    }    
+    } 
+    
+    @When("username {string} and password {string} are entered")
+    public void tryToLogInWithUsernameAndPassword(String username, String password) {
+        logInWith(username, password);
+    }
  
     @When("correct username {string} and incorrect password {string} are given")
     public void correctUsernameAndIncorrectPasswordAreGiven(String username, String password) {
@@ -123,5 +137,11 @@ public class Stepdefs {
         element.sendKeys(passwordCheck);
         element = driver.findElement(By.name("signup"));
         element.submit();
+    }
+    
+    private void goToCreateNewUserPage() {
+        driver.get(baseUrl);
+        WebElement element = driver.findElement(By.linkText("register new user"));
+        element.click();
     }
 }
