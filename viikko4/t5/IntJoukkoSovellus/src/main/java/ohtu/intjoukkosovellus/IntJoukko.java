@@ -42,23 +42,23 @@ public class IntJoukko {
         if (kuuluu(luku)) {
             return false;
         }
-        if (alkioidenLkm == 0) {
-            ljono[0] = luku;
-            alkioidenLkm++;
-            return true;
-        } 
+        if (alkioidenLkm == ljono.length) {
+            kasvata();
+        }
         
         ljono[alkioidenLkm] = luku;
         alkioidenLkm++;
-        if (alkioidenLkm % ljono.length == 0) {
-            int[] taulukkoOld = new int[ljono.length];
-            taulukkoOld = ljono;
-            kopioiTaulukko(ljono, taulukkoOld);
-            ljono = new int[alkioidenLkm + kasvatuskoko];
-            kopioiTaulukko(taulukkoOld, ljono);
-        }
         return true;
         
+    }
+    
+    private void kasvata() {
+        int[] taulukkoAlkup = new int[ljono.length];
+        kopioiTaulukko(ljono, taulukkoAlkup);
+
+
+        ljono = new int[alkioidenLkm + kasvatuskoko];
+        kopioiTaulukko(taulukkoAlkup, ljono);
     }
 
     public boolean kuuluu(int luku) {
