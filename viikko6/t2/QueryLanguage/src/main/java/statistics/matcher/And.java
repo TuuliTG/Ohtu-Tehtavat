@@ -20,4 +20,8 @@ public class And implements Matcher {
 
         return true;
     }
+    
+    public String getName() {
+        return "and";
+    }
 }

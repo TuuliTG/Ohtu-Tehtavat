@@ -28,4 +28,8 @@ public class HasAtLeast implements Matcher {
         
     }    
     
+    public String getName() {
+        return "has at least";
+    }
+    
 }

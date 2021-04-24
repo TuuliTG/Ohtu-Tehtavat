@@ -12,7 +12,6 @@ package statistics.matcher;
  */
 public class QueryBuilder {
     Matcher m;
-    Matcher[] matchers;
 
     public QueryBuilder() {
         m = new All();
@@ -33,8 +32,15 @@ public class QueryBuilder {
         return this;
     }
     
+    public QueryBuilder oneOf(Matcher... matchers) {
+        this.m = new Or(matchers);
+        return this;
+    }
+    
     public Matcher build() {
-        return m;
+        Matcher matcher = m;
+        m = new All();
+        return matcher;
         
         
     }

@@ -37,4 +37,8 @@ public class HasFewerThan implements Matcher {
         } 
     }
     
+    public String getName() {
+        return "has fewer than";
+    }
+    
 }
