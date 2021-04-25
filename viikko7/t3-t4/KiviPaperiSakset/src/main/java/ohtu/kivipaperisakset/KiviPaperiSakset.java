@@ -20,7 +20,7 @@ public abstract class KiviPaperiSakset {
 
         String ekanSiirto = ensimmaisenSiirto();
              
-        System.out.println("Toisen pelaajan siirto: ");
+        
         String tokanSiirto = toisenSiirto();
         
         while (onkoOkSiirto(ekanSiirto) && onkoOkSiirto(tokanSiirto)) {
@@ -28,7 +28,6 @@ public abstract class KiviPaperiSakset {
             System.out.println(tuomari);
             System.out.println();
             ekanSiirto = ensimmaisenSiirto();
-            System.out.println("Toisen pelaajan siirto: ");
             tokanSiirto = toisenSiirto();
         }
 
