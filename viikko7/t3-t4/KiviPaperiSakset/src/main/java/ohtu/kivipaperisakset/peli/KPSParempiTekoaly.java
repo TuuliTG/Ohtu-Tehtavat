@@ -1,6 +1,10 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.peli;
 
 // Kivi-Paperi-Sakset, jossa voidaan valita pelataanko vastustajaa
+
+import ohtu.kivipaperisakset.tekoaly.Tekoaly;
+import ohtu.kivipaperisakset.tekoaly.TekoalyParannettu;
+
 // vastaan vai ei
 public class KPSParempiTekoaly extends KiviPaperiSakset {
     

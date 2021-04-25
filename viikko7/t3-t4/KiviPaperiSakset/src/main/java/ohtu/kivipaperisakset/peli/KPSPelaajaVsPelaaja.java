@@ -1,4 +1,4 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.peli;
 
 
 public class KPSPelaajaVsPelaaja extends KiviPaperiSakset {

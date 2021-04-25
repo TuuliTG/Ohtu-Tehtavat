@@ -1,5 +1,6 @@
 package ohtu.kivipaperisakset;
 
+import ohtu.kivipaperisakset.peli.KiviPaperiSakset;
 import java.util.Scanner;
 
 public class Paaohjelma {

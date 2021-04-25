@@ -1,4 +1,7 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.peli;
+
+import ohtu.kivipaperisakset.tekoaly.Tekoaly;
+import ohtu.kivipaperisakset.tekoaly.YksinkertainenTekoaly;
 
 public class KPSTekoaly extends KiviPaperiSakset {
     private Tekoaly tekoaly = new YksinkertainenTekoaly();

@@ -1,4 +1,4 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.tekoaly;
 
 public class YksinkertainenTekoaly implements Tekoaly {
 

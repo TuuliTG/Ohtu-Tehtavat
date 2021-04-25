@@ -1,7 +1,10 @@
 
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.tekoaly;
 
 // "Muistava tekoäly"
+
+import ohtu.kivipaperisakset.tyokalut.Laskuri;
+
 
 public class TekoalyParannettu implements Tekoaly {
   private String[] muisti;
