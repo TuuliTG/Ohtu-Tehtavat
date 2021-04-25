@@ -1,27 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package ohtu.kivipaperisakset;
 
-public class Tekoaly {
+/**
+ *
+ * @author tgtuuli
+ */
+public interface Tekoaly {
 
-    int siirto;
+    String annaSiirto();
 
-    public Tekoaly() {
-        siirto = 0;
-    }
-
-    public String annaSiirto() {
-        siirto++;
-        siirto = siirto % 3;
-
-        if (siirto == 0) {
-            return "k";
-        } else if (siirto == 1) {
-            return "p";
-        } else {
-            return "s";
-        }
-    }
-
-    void asetaSiirto(String ekanSiirto) {
-        // ei tehdä mitään 
-    }
+    void asetaSiirto(String siirto);
+    
 }

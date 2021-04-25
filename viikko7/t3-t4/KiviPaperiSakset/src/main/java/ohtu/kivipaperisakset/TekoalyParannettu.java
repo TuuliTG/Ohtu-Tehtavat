@@ -3,7 +3,7 @@ package ohtu.kivipaperisakset;
 
 // "Muistava tekoäly"
 
-public class TekoalyParannettu {
+public class TekoalyParannettu implements Tekoaly {
   private String[] muisti;
   private int vapaaMuistiIndeksi;
 
@@ -12,6 +12,7 @@ public class TekoalyParannettu {
     vapaaMuistiIndeksi = 0;
   }
   
+    @Override
   public void asetaSiirto(String siirto) {
     // jos muisti täyttyy, unohdetaan viimeinen alkio
     if(vapaaMuistiIndeksi == muisti.length) {
@@ -27,35 +28,27 @@ public class TekoalyParannettu {
   }
 
   
+    @Override
   public String annaSiirto() {
     if(vapaaMuistiIndeksi == 0 || vapaaMuistiIndeksi == 1) {
       return "k";
     }
     
     String viimeisinSiirto = muisti[vapaaMuistiIndeksi - 1];
+    Laskuri laskuri= new Laskuri(muisti);
+    laskuri.laske(viimeisinSiirto, vapaaMuistiIndeksi);
     
-    int k = 0;
-    int p = 0;
-    int s = 0;
-    
-    
-    for(int i = 0; i < vapaaMuistiIndeksi - 1; i++) {
-      if(viimeisinSiirto.equals(muisti[i])) {
-        String seuraava = muisti[i+1];
-        
-        if("k".equals(seuraava)) {
-          k++;
-        }
-        else if("p".equals(seuraava)) {
-          p++;
-        }
-        else {
-          s++;
-        }        
-      }
-    }
+    int k = laskuri.getK();
+    int p = laskuri.getP();
+    int s = laskuri.getS();
+    return annaVastaus(k, p, s);
     
     
+    // Tehokkaampiakin tapoja löytyy, mutta niistä lisää 
+    // Johdatus Tekoälyyn kurssilla!
+  }
+  
+  private String annaVastaus(int k, int p, int s) {
     // Tehdään siirron valinta esimerkiksi seuraavasti;
     // - jos kiviä eniten, annetaan aina paperi
     // - jos papereita eniten, annetaan aina sakset
@@ -69,8 +62,5 @@ public class TekoalyParannettu {
     else {
       return "k";
     }
-    
-    // Tehokkaampiakin tapoja löytyy, mutta niistä lisää 
-    // Johdatus Tekoälyyn kurssilla!
   }
 }

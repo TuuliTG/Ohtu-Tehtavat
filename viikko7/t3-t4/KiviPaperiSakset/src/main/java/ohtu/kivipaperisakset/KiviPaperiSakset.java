@@ -14,6 +14,7 @@ import java.util.Scanner;
 public abstract class KiviPaperiSakset {
     
     public static final Scanner scanner = new Scanner(System.in);
+    public String ekanSiirto;
     
     public static KiviPaperiSakset luoKaksinpeli() {
         return new KPSPelaajaVsPelaaja();
@@ -27,13 +28,10 @@ public abstract class KiviPaperiSakset {
         return new KPSParempiTekoaly();
     }
     
-    
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
 
-        String ekanSiirto = ensimmaisenSiirto();
-             
-        
+        ekanSiirto = ensimmaisenSiirto();
         String tokanSiirto = toisenSiirto();
         
         while (onkoOkSiirto(ekanSiirto) && onkoOkSiirto(tokanSiirto)) {
@@ -52,7 +50,6 @@ public abstract class KiviPaperiSakset {
     protected String ensimmaisenSiirto() {
         System.out.println("Ensimmäisen pelaajan siirto: ");
         return scanner.nextLine();
-         
     }
     
     abstract protected String toisenSiirto();
@@ -60,6 +57,5 @@ public abstract class KiviPaperiSakset {
     protected boolean onkoOkSiirto(String siirto) {
        return "k".equals(siirto) || "p".equals(siirto) || "s".equals(siirto);
     }
-    
     
 }
