@@ -18,15 +18,15 @@ public class Paaohjelma {
             String vastaus = scanner.nextLine();
             if (vastaus.endsWith("a")) {
                 System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPSPelaajaVsPelaaja kaksinpeli = new KPSPelaajaVsPelaaja();
+                KiviPaperiSakset kaksinpeli = KiviPaperiSakset.luoKaksinpeli();
                 kaksinpeli.pelaa();
             } else if (vastaus.endsWith("b")) {
                 System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPSTekoaly yksinpeli = new KPSTekoaly();
+                KiviPaperiSakset yksinpeli = KiviPaperiSakset.luoYksinpeli();
                 yksinpeli.pelaa();
             } else if (vastaus.endsWith("c")) {
                 System.out.println("peli loppuu kun pelaaja antaa virheellisen siirron eli jonkun muun kuin k, p tai s");
-                KPSParempiTekoaly pahaYksinpeli = new KPSParempiTekoaly();
+                KiviPaperiSakset pahaYksinpeli = KiviPaperiSakset.luoPahaYksinpeli();
                 pahaYksinpeli.pelaa();
             } else {
                 break;

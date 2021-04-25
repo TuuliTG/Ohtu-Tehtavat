@@ -15,6 +15,19 @@ public abstract class KiviPaperiSakset {
     
     public static final Scanner scanner = new Scanner(System.in);
     
+    public static KiviPaperiSakset luoKaksinpeli() {
+        return new KPSPelaajaVsPelaaja();
+    }
+    
+    public static KiviPaperiSakset luoYksinpeli() {
+        return new KPSTekoaly();
+    }
+    
+    public static KiviPaperiSakset luoPahaYksinpeli() {
+        return new KPSParempiTekoaly();
+    }
+    
+    
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
 
